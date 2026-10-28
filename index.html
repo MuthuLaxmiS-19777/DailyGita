@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daily Gita & Hanuman Chalisa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff7ea;--card:#fffdf8;--ink:#3a2412;--mut:#8a6a4f;--acc:#d9731a;--acc2:#a8430c;--line:#efd9b8;--glow:rgba(217,115,26,.15);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1008;--card:#261910;--ink:#fbe9d0;--mut:#c19a74;--acc:#ffa24c;--acc2:#ffc27a;--line:#4a3322;--glow:rgba(255,162,76,.12);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1a1008;--card:#261910;--ink:#fbe9d0;--mut:#c19a74;--acc:#ffa24c;--acc2:#ffc27a;--line:#4a3322;--glow:rgba(255,162,76,.12);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% -10%,var(--glow),transparent 60%),var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+.w{max-width:680px;margin:0 auto;padding:18px 16px 90px}
+h1,.sa{font-family:'Cormorant Garamond',Georgia,serif}
+.top{text-align:center;padding:10px 0 4px}
+.om{font-size:34px;color:var(--acc)}
+h1{margin:0;font-size:30px;letter-spacing:.5px}
+.clock{font-size:42px;font-weight:700;font-family:'Cormorant Garamond',serif;color:var(--acc2);line-height:1.1;margin-top:6px}
+.date{color:var(--mut);font-size:14px}
+.tabs{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px;margin:18px 0;position:sticky;top:8px;z-index:5}
+.tabs button{flex:1;border:0;background:none;color:var(--mut);padding:10px 4px;border-radius:999px;font:600 14px system-ui;cursor:pointer}
+.tabs button.on{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 20px;box-shadow:0 8px 30px var(--glow);margin-bottom:16px}
+.tag{display:inline-block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--acc);font-weight:700}
+.dv{font-family:'Noto Serif Devanagari',serif;font-size:22px;line-height:2;text-align:center;margin:14px 0;color:var(--ink)}
+.mean{border-top:1px dashed var(--line);padding-top:14px;color:var(--ink)}
+.mean b{color:var(--acc2)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{flex:1;min-width:110px;border:1px solid var(--acc);background:none;color:var(--acc2);padding:11px;border-radius:14px;font:600 14px system-ui;cursor:pointer}
+.btn.fill{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border-color:transparent}
+.stats{display:flex;gap:10px}.stats div{flex:1;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+.stats b{display:block;font:700 26px 'Cormorant Garamond',serif;color:var(--acc2)}.stats span{font-size:12px;color:var(--mut)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+.cal .h{font-size:12px;color:var(--mut);font-weight:700}
+.cal button{aspect-ratio:1;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;font:600 14px system-ui;cursor:pointer;position:relative}
+.cal button.read{background:var(--acc);color:#fff;border-color:var(--acc)}
+.cal button.today{outline:2px solid var(--acc2);outline-offset:1px}
+.cal button.sel{box-shadow:0 0 0 3px var(--glow),inset 0 0 0 2px var(--acc2)}
+.mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.mh button{border:1px solid var(--line);background:var(--bg);color:var(--ink);width:38px;height:38px;border-radius:50%;font-size:18px;cursor:pointer}
+.mh h2{margin:0;font:700 22px 'Cormorant Garamond',serif}
+.ch p{font-family:'Noto Serif Devanagari',serif;text-align:center;line-height:2.1;margin:0 0 14px;font-size:var(--fs,20px)}
+.ch h3{text-align:center;color:var(--acc);font:700 20px 'Cormorant Garamond',serif;margin:20px 0 6px}
+.fs{display:flex;gap:8px;justify-content:center;margin-bottom:14px}.fs button{width:44px}
+.rec{font-size:14px;color:var(--mut);text-align:center;margin-top:14px;line-height:1.8}.rec b{color:var(--acc2)}.cal button.hc::after{content:"";position:absolute;bottom:4px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--acc2)}.cal button.read.hc::after{background:#fff}.ro{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:.78em;font-style:italic;font-weight:500;line-height:1.5;color:var(--mut);margin-top:-4px}.dv .ro{font-size:.8em;margin-top:8px}
+.hide{display:none}
+</style></head><body><div class="w">
+<div class="top"><div class="om">ॐ</div><h1>Daily Gita</h1><div class="clock" id="clk"></div><div class="date" id="dt"></div></div>
+<div class="tabs"><button class="on" data-t="today">Today</button><button data-t="cal">Calendar</button><button data-t="chal">Hanuman Chalisa</button></div>
+
+<section id="today">
+<div class="stats"><div><b id="st1">0</b><span>Day streak</span></div><div><b id="st2">0</b><span>Read this month</span></div><div><b id="st3">0</b><span>Total days</span></div></div><br>
+<div class="card"><span class="tag" id="ref"></span><div class="dv" id="sa"></div><div class="mean" id="mn"></div>
+<div class="row"><button class="btn" id="prev">← Previous</button><button class="btn" id="next">Next →</button><button class="btn fill" id="done">Mark as read ✓</button></div><div class="rec" id="rec"></div></div>
+</section>
+
+<section id="cal" class="hide"><div class="card"><div class="mh"><button id="pm">‹</button><h2 id="mt"></h2><button id="nm">›</button></div><div class="cal" id="grid"></div>
+<p style="font-size:13px;color:var(--mut);margin:14px 0 0">Tap any date to see that day’s shloka. Orange = Gita finished, dot = Hanuman Chalisa finished.</p></div></section>
+
+<section id="chal" class="hide"><div class="card ch"><div class="rec" id="crec" style="margin:0 0 10px"></div><div class="row" style="margin:0 0 16px"><button class="btn fill" id="cdone"></button></div><div class="fs"><button class="btn" id="fm">A−</button><button class="btn" id="fp">A+</button></div><div id="cb"></div></div></section>
+</div>
+<script>
+var G=[
+["2.47","कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥","You have a right to your actions, never to their fruits. Do not act for the reward, and do not cling to inaction. <b>Today:</b> give your full effort, and let go of the outcome."],
+["2.20","न जायते म्रियते वा कदाचिन्नायं भूत्वा भविता वा न भूयः।\nअजो नित्यः शाश्वतोऽयं पुराणो न हन्यते हन्यमाने शरीरे॥","The Self is never born and never dies. It is unborn, eternal and ancient, and is not destroyed when the body is destroyed. <b>Today:</b> you are more than your worries."],
+["4.7","यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।\nअभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥","Whenever righteousness declines and unrighteousness rises, I manifest myself. <b>Today:</b> hold on to hope; goodness always returns."],
+["2.48","योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय।\nसिद्ध्यसिद्ध्योः समो भूत्वा समत्वं योग उच्यते॥","Stay steady in yoga, act without attachment, and be even-minded in success and failure. Such balance is called yoga. <b>Today:</b> stay calm in both wins and losses."],
+["6.5","उद्धरेदात्मनात्मानं नात्मानमवसादयेत्।\nआत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः॥","Lift yourself by your own mind; do not let yourself down. The mind is your best friend, and also your worst enemy. <b>Today:</b> speak kindly to yourself."],
+["2.22","वासांसि जीर्णानि यथा विहाय नवानि गृह्णाति नरोऽपराणि।\nतथा शरीराणि विहाय जीर्णान्यन्यानि संयाति नवानि देही॥","As a person discards worn-out clothes and puts on new ones, the soul discards old bodies and takes new ones. <b>Today:</b> change is natural; let go of what is finished."],
+["9.22","अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते।\nतेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम्॥","Those who worship Me with undivided devotion, I carry what they lack and preserve what they have. <b>Today:</b> trust and focus bring support."],
+["2.38","सुखदुःखे समे कृत्वा लाभालाभौ जयाजयौ।\nततो युद्धाय युज्यस्व नैवं पापमवाप्स्यसि॥","Treat pleasure and pain, gain and loss, victory and defeat alike, then engage in your duty. You will incur no sin. <b>Today:</b> do your duty with an even mind."],
+["6.35","असंशयं महाबाहो मनो दुर्निग्रहं चलम्।\nअभ्यासेन तु कौन्तेय वैराग्येण च गृह्यते॥","The mind is restless and hard to control, no doubt. But it can be trained through practice and detachment. <b>Today:</b> small daily practice beats big intentions."],
+["3.35","श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात्।\nस्वधर्मे निधनं श्रेयः परधर्मो भयावहः॥","Better is one’s own duty, even imperfect, than another’s duty done well. <b>Today:</b> walk your own path without comparison."],
+["18.66","सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज।\nअहं त्वां सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः॥","Surrender all else and take refuge in Me alone. I will free you from all burdens; do not grieve. <b>Today:</b> hand over your worries and breathe."]];
+var C=`श्रीगुरु चरन सरोज रज, निज मनु मुकुरु सुधारि।
+बरनउँ रघुबर बिमल जसु, जो दायकु फल चारि॥
+बुद्धिहीन तनु जानिके, सुमिरौं पवन-कुमार।
+बल बुद्धि बिद्या देहु मोहिं, हरहु कलेस बिकार॥
+##
+जय हनुमान ज्ञान गुन सागर। जय कपीस तिहुँ लोक उजागर॥
+राम दूत अतुलित बल धामा। अंजनि-पुत्र पवनसुत नामा॥
+महाबीर बिक्रम बजरंगी। कुमति निवार सुमति के संगी॥
+कंचन बरन बिराज सुबेसा। कानन कुंडल कुंचित केसा॥
+हाथ बज्र औ ध्वजा बिराजै। काँधे मूँज जनेऊ साजै॥
+संकर सुवन केसरी नंदन। तेज प्रताप महा जग बंदन॥
+बिद्यावान गुनी अति चातुर। राम काज करिबे को आतुर॥
+प्रभु चरित्र सुनिबे को रसिया। राम लखन सीता मन बसिया॥
+सूक्ष्म रूप धरि सियहिं दिखावा। बिकट रूप धरि लंक जरावा॥
+भीम रूप धरि असुर सँहारे। रामचंद्र के काज सँवारे॥
+लाय सजीवन लखन जियाये। श्रीरघुबीर हरषि उर लाये॥
+रघुपति कीन्ही बहुत बड़ाई। तुम मम प्रिय भरतहि सम भाई॥
+सहस बदन तुम्हरो जस गावैं। अस कहि श्रीपति कंठ लगावैं॥
+सनकादिक ब्रह्मादि मुनीसा। नारद सारद सहित अहीसा॥
+जम कुबेर दिगपाल जहाँ ते। कबि कोबिद कहि सके कहाँ ते॥
+तुम उपकार सुग्रीवहिं कीन्हा। राम मिलाय राज पद दीन्हा॥
+तुम्हरो मंत्र बिभीषन माना। लंकेस्वर भए सब जग जाना॥
+जुग सहस्र जोजन पर भानू। लील्यो ताहि मधुर फल जानू॥
+प्रभु मुद्रिका मेलि मुख माहीं। जलधि लाँघि गये अचरज नाहीं॥
+दुर्गम काज जगत के जेते। सुगम अनुग्रह तुम्हरे तेते॥
+राम दुआरे तुम रखवारे। होत न आज्ञा बिनु पैसारे॥
+सब सुख लहै तुम्हारी सरना। तुम रक्षक काहू को डर ना॥
+आपन तेज सम्हारो आपै। तीनों लोक हाँक तें काँपै॥
+भूत पिसाच निकट नहिं आवै। महाबीर जब नाम सुनावै॥
+नासै रोग हरै सब पीरा। जपत निरंतर हनुमत बीरा॥
+संकट तें हनुमान छुड़ावै। मन क्रम बचन ध्यान जो लावै॥
+सब पर राम तपस्वी राजा। तिन के काज सकल तुम साजा॥
+और मनोरथ जो कोई लावै। सोई अमित जीवन फल पावै॥
+चारों जुग परताप तुम्हारा। है परसिद्ध जगत उजियारा॥
+साधु संत के तुम रखवारे। असुर निकंदन राम दुलारे॥
+अष्ट सिद्धि नौ निधि के दाता। अस बर दीन जानकी माता॥
+राम रसायन तुम्हरे पासा। सदा रहो रघुपति के दासा॥
+तुम्हरे भजन राम को पावै। जनम जनम के दुख बिसरावै॥
+अंत काल रघुबर पुर जाई। जहाँ जन्म हरि-भक्त कहाई॥
+और देवता चित्त न धरई। हनुमत सेइ सर्ब सुख करई॥
+संकट कटै मिटै सब पीरा। जो सुमिरै हनुमत बलबीरा॥
+जै जै जै हनुमान गोसाईं। कृपा करहु गुरु देव की नाईं॥
+जो सत बार पाठ कर कोई। छूटहि बंदि महा सुख होई॥
+जो यह पढ़ै हनुमान चालीसा। होय सिद्धि साखी गौरीसा॥
+तुलसीदास सदा हरि चेरा। कीजै नाथ हृदय महँ डेरा॥
+##
+पवनतनय संकट हरन, मंगल मूरति रूप।
+राम लखन सीता सहित, हृदय बसहु सुर भूप॥`;
+var GR=["Karmanyevadhikaraste ma phaleshu kadachana.\nMa karmaphalaheturbhurma te sangostvakarmani.","Na jayate mriyate va kadachinnayam bhutva bhavita va na bhuyah.\nAjo nityah shashvatoyam purano na hanyate hanyamane sharire.","Yada yada hi dharmasya glanirbhavati Bharata.\nAbhyutthanam adharmasya tadatmanam srijamyaham.","Yogasthah kuru karmani sangam tyaktva Dhananjaya.\nSiddhyasiddhyoh samo bhutva samatvam yoga uchyate.","Uddhared atmanatmanam natmanam avasadayet.\nAtmaiva hyatmano bandhur atmaiva ripur atmanah.","Vasamsi jirnani yatha vihaya navani grihnati naroparani.\nTatha sharirani vihaya jirnany anyani samyati navani dehi.","Ananyash chintayanto mam ye janah paryupasate.\nTesham nityabhiyuktanam yogakshemam vahamyaham.","Sukhaduhkhe same kritva labhalabhau jayajayau.\nTato yuddhaya yujyasva naivam papam avapsyasi.","Asamshayam mahabaho mano durnigraham chalam.\nAbhyasena tu Kaunteya vairagyena cha grihyate.","Shreyan svadharmo vigunah paradharmat svanushthitat.\nSvadharme nidhanam shreyah paradharmo bhayavahah.","Sarvadharman parityajya mam ekam sharanam vraja.\nAham tvam sarvapapebhyo mokshayishyami ma shuchah."];
+var CR=`Shri guru charan saroj raj, nij man mukur sudhari.
+Barnau Raghubar bimal jasu, jo dayak phal chari.
+Buddhiheen tanu janike, sumirau Pavan-kumar.
+Bal buddhi vidya dehu mohi, harahu kalesh vikar.
+##
+Jai Hanuman gyan gun sagar. Jai Kapis tihun lok ujagar.
+Ram doot atulit bal dhama. Anjani-putra Pavansut nama.
+Mahabir bikram Bajrangi. Kumati nivar sumati ke sangi.
+Kanchan baran biraj subesa. Kanan kundal kunchit kesa.
+Hath vajra au dhvaja biraje. Kaandhe moonj janeu saje.
+Sankar suvan Kesari Nandan. Tej pratap maha jag vandan.
+Vidyavan guni ati chatur. Ram kaj karibe ko atur.
+Prabhu charitra sunibe ko rasiya. Ram Lakhan Sita man basiya.
+Sukshma roop dhari Siyahi dikhava. Vikat roop dhari Lanka jarava.
+Bhim roop dhari asur sanhare. Ramchandra ke kaj sanvare.
+Lay sanjivan Lakhan jiye. Shri Raghubir harashi ur laye.
+Raghupati kinhi bahut badai. Tum mam priya Bharat-hi sam bhai.
+Sahas badan tumharo jas gavain. As kahi Shripati kanth lagavain.
+Sankadik Brahmadi munisa. Narad Sarad sahit Ahisa.
+Jam Kuber digpal jahan te. Kabi kobid kahi sake kahan te.
+Tum upkar Sugrivahin kinha. Ram milaye rajpad dinha.
+Tumharo mantra Vibhishan mana. Lankeshwar bhaye sab jag jana.
+Yug sahastra yojan par bhanu. Leelyo tahi madhur phal janu.
+Prabhu mudrika meli mukh mahin. Jaladhi langhi gaye achraj nahin.
+Durgam kaj jagat ke jete. Sugam anugrah tumhre tete.
+Ram duare tum rakhvare. Hot na agya binu paisare.
+Sab sukh lahai tumhari sarna. Tum rakshak kahu ko dar na.
+Aapan tej samharo aapai. Teenon lok hank te kanpai.
+Bhoot pishach nikat nahin aavai. Mahabir jab naam sunavai.
+Nasai rog harai sab peera. Japat nirantar Hanumat beera.
+Sankat te Hanuman chhudavai. Man kram vachan dhyan jo lavai.
+Sab par Ram tapasvi raja. Tin ke kaj sakal tum saja.
+Aur manorath jo koi lavai. Soi amit jeevan phal pavai.
+Charon yug partap tumhara. Hai prasiddh jagat ujiyara.
+Sadhu sant ke tum rakhvare. Asur nikandan Ram dulare.
+Asht siddhi nau nidhi ke data. As var din Janki mata.
+Ram rasayan tumhre pasa. Sada raho Raghupati ke dasa.
+Tumhre bhajan Ram ko pavai. Janam janam ke dukh bisravai.
+Ant kaal Raghubar pur jai. Jahan janm Hari-bhakt kahai.
+Aur devta chitt na dharai. Hanumat sei sarb sukh karai.
+Sankat kate mite sab peera. Jo sumirai Hanumat balbeera.
+Jai jai jai Hanuman Gosain. Kripa karahu Gurudev ki nain.
+Jo sat bar path kar koi. Chhutahi bandi maha sukh hoi.
+Jo yah padhai Hanuman Chalisa. Hoy siddhi sakhi Gaurisa.
+Tulsidas sada Hari chera. Keejai nath hriday mah dera.
+##
+Pavantanay sankat haran, mangal moorati roop.
+Ram Lakhan Sita sahit, hriday basahu sur bhoop.`;
+var $=function(i){return document.getElementById(i)},R={},sel=new Date(),vm=new Date(),fs=20;
+var H={};try{R=JSON.parse(localStorage.getItem('gitaRead')||'{}')}catch(e){}
+try{H=JSON.parse(localStorage.getItem('chalRead')||'{}')}catch(e){}
+function save(){try{localStorage.setItem('gitaRead',JSON.stringify(R));localStorage.setItem('chalRead',JSON.stringify(H))}catch(e){}}
+function ft(s){if(!s||s===1)return 'time not recorded';var d=new Date(s);return d.toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'})+', '+d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}
+function cs(){var k=key(sel),h=H[k];$('cdone').textContent=h?'Chalisa finished ✓ (tap to undo)':'I finished Hanuman Chalisa ✓';$('crec').innerHTML='<b>'+sel.toLocaleDateString(undefined,{day:'numeric',month:'short'})+':</b> '+(h?'finished '+ft(h):'not yet recorded')}
+function key(d){return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
+function idx(d){return Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())-Date.UTC(d.getFullYear(),0,0))/864e5)}
+var off=0;
+function show(){var d=new Date(sel);d.setDate(d.getDate());var gi=(idx(d)+off+G.length*400)%G.length,g=G[gi];
+$('ref').textContent='Bhagavad Gita · '+g[0]+' · '+d.toLocaleDateString(undefined,{day:'numeric',month:'short'});
+$('sa').innerHTML=g[1].replace('\n','<br>')+'<span class="ro">'+GR[gi].replace('\n','<br>')+'</span>';$('mn').innerHTML='<b>Meaning:</b> '+g[2];
+var k=key(d),r=R[k];$('done').textContent=r?'Shloka finished ✓ (tap to undo)':'I finished today’s shloka ✓';$('done').style.opacity=r?.75:1;$('rec').innerHTML='<b>Gita:</b> '+(r?ft(r):'not yet')+'<br><b>Hanuman Chalisa:</b> '+(H[k]?ft(H[k]):'not yet');cs();stats();grid()}
+function stats(){var n=new Date(),s=0,c=new Date(n);if(!R[key(c)])c.setDate(c.getDate()-1);while(R[key(c)]){s++;c.setDate(c.getDate()-1)}
+var m=0;for(var k in R){var p=k.split('-');if(+p[0]==n.getFullYear()&&+p[1]==n.getMonth()+1)m++}
+$('st1').textContent=s;$('st2').textContent=m;$('st3').textContent=Object.keys(R).length}
+function grid(){var y=vm.getFullYear(),m=vm.getMonth(),f=new Date(y,m,1).getDay(),n=new Date(y,m+1,0).getDate(),h='';
+$('mt').textContent=vm.toLocaleDateString(undefined,{month:'long',year:'numeric'});
+'SMTWTFS'.split('').forEach(function(x){h+='<div class="h">'+x+'</div>'});
+for(var i=0;i<f;i++)h+='<div></div>';
+for(var d=1;d<=n;d++){var dt=new Date(y,m,d),c=(R[key(dt)]?' read':'')+(H[key(dt)]?' hc':'')+(key(dt)==key(new Date())?' today':'')+(key(dt)==key(sel)?' sel':'');h+='<button class="'+c.trim()+'" data-d="'+d+'">'+d+'</button>'}
+$('grid').innerHTML=h}
+function tick(){var n=new Date();$('clk').textContent=n.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'});$('dt').textContent=n.toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'long',year:'numeric'})}
+function chal(){var p=C.split('##'),t=['॥ दोहा ॥','॥ चौपाई ॥','॥ दोहा ॥'],h='';p.forEach(function(b,i){h+='<h3>'+t[i]+'</h3>';var rp=CR.split('##')[i].trim().split('\n');b.trim().split('\n').forEach(function(l,j){h+='<p>'+l+'<span class="ro">'+(rp[j]||'')+'</span></p>'})});$('cb').innerHTML=h}
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.tabs button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');['today','cal','chal'].forEach(function(s){$(s).classList.toggle('hide',s!=b.dataset.t)});window.scrollTo(0,0)}});
+$('grid').onclick=function(e){var d=e.target.dataset.d;if(d){sel=new Date(vm.getFullYear(),vm.getMonth(),+d);off=0;show();document.querySelector('.tabs button').click()}};
+$('done').onclick=function(){var k=key(sel);if(R[k])delete R[k];else R[k]=new Date().toISOString();save();show()};
+$('next').onclick=function(){off++;show()};$('prev').onclick=function(){off--;show()};
+$('pm').onclick=function(){vm.setMonth(vm.getMonth()-1);grid()};$('nm').onclick=function(){vm.setMonth(vm.getMonth()+1);grid()};
+$('fp').onclick=function(){fs=Math.min(34,fs+2);document.documentElement.style.setProperty('--fs',fs+'px')};
+$('fm').onclick=function(){fs=Math.max(15,fs-2);document.documentElement.style.setProperty('--fs',fs+'px')};
+$('cdone').onclick=function(){var k=key(sel);if(H[k])delete H[k];else H[k]=new Date().toISOString();save();show()};
+tick();setInterval(tick,1000);chal();show();
+</script></body></html>
